@@ -18,20 +18,27 @@ A simple Go program to calculate circular distances between geographical points 
 
 ## Installation
 
-1.  **Clone the repository:**
+Either, clone this repo, or download the binary.
 
-    ```
-    git clone https://github.com/dickeyy/go-distances
-    cd go-distances
-    ```
+### Clone the repo
+
+```
+git clone https://github.com/dickeyy/go-distances.git
+cd go-distances
+```
+
+### Download the binary
+
+```
+go download github.com/dickeyy/go-distances@latest
+```
 
 ## Usage
 
 1.  **Run the program:**
 
-    ```
-    go run main.go
-    ```
+    If you cloned the repo, run `go run main.go`.
+    If you downloaded the binary, run `go-distances`.
 
 2.  **Follow the prompts:**
 

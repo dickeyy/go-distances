@@ -2,9 +2,9 @@ package formulas
 
 import "math"
 
-// vicinityDistance calculates the great-circle distance using the spherical law of cosines.
+// vincenty calculates the great-circle distance using the spherical law of cosines.
 // As before, the coordinates are given in degrees.
-func Vicinity(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
+func Vincenty(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
 	// Convert degrees to radians.
 	rad := math.Pi / 180.0
 	lat1Rad := lat1 * rad

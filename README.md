@@ -4,7 +4,7 @@ A simple Go program to calculate circular distances between geographical points 
 
 ## Description
 
-`go-distances` calculates the distances between a set of geographical points arranged in a circular path. It prompts the user for the number of points, their latitudes and longitudes, the Earth's radius, and the formula to use for distance calculation. Currently, it supports the Haversine and Vicinity formulas.
+`go-distances` calculates the distances between a set of geographical points arranged in a circular path. It prompts the user for the number of points, their latitudes and longitudes, the Earth's radius, and the formula to use for distance calculation. Currently, it supports the Haversine and Vincenty formulas.
 
 ## Features
 
@@ -45,7 +45,7 @@ go install github.com/dickeyy/go-distances@latest
     - Enter the number of points.
     - Enter the latitude and longitude for each point.
     - Enter the Earth's radius (in your desired unit, e.g., 6371 for kilometers).
-    - Enter the formula to use (`haversine` or `vicinity`).
+    - Enter the formula to use (`haversine` or `vincenty`).
 
 3.  **View the results:**
 
@@ -54,7 +54,7 @@ go install github.com/dickeyy/go-distances@latest
 ## Formulas
 
 - `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.
-- `vicinity`: Uses the Vicinity formula to calculate the distance between two points on a sphere.
+- `vincenty`: Uses the Vincenty formula to calculate the distance between two points on a sphere.
 
 ## License
 

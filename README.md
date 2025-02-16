@@ -53,8 +53,8 @@ go install github.com/dickeyy/go-distances@latest
 
 ## Formulas
 
-- **Haversine:** Calculates the great-circle distance between two points on a sphere given their longitudes and latitudes. This is a common and accurate method for calculating distances on Earth.
-- **Vicinity:** (Describe the vicinity formula if you have details about it. Otherwise, state that it's an alternative distance calculation method.)
+- `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.
+- `vicinity`: Uses the Vicinity formula to calculate the distance between two points on a sphere.
 
 ## License
 

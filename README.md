@@ -30,7 +30,7 @@ cd go-distances
 ### Download the binary
 
 ```
-go download github.com/dickeyy/go-distances@latest
+go install github.com/dickeyy/go-distances@latest
 ```
 
 ## Usage

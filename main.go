@@ -8,38 +8,50 @@ import (
 	"github.com/dickeyy/go-distances/formulas"
 )
 
-// calculateCircularDistancesHaversine computes the distances between:
-// 1 -> 2, 2 -> 3, 3 -> 4, and 4 -> 1 using the haversine formula.
-func calculateCircularDistance(latitudes [4]float64, longitudes [4]float64, earthRadius int, formula string) {
-	var d12, d23, d34, d41 int
+// calculateCircularDistances computes the distances between points in a circular manner
+// using the specified formula. It accepts a variable number of latitudes and longitudes.
+func calculateCircularDistance(latitudes []float64, longitudes []float64, earthRadius int, formula string) {
+	numPoints := len(latitudes)
+	if numPoints < 2 {
+		fmt.Println("At least two points are required to calculate circular distances.")
+		return
+	}
+
+	distances := make([]int, numPoints)
+
 	switch formula {
 	case "haversine":
-		d12 = int(math.Round(formulas.Haversine(latitudes[0], longitudes[0], latitudes[1], longitudes[1], earthRadius)))
-		d23 = int(math.Round(formulas.Haversine(latitudes[1], longitudes[1], latitudes[2], longitudes[2], earthRadius)))
-		d34 = int(math.Round(formulas.Haversine(latitudes[2], longitudes[2], latitudes[3], longitudes[3], earthRadius)))
-		d41 = int(math.Round(formulas.Haversine(latitudes[3], longitudes[3], latitudes[0], longitudes[0], earthRadius)))
+		for i := 0; i < numPoints; i++ {
+			nextIndex := (i + 1) % numPoints
+			distances[i] = int(math.Round(formulas.Haversine(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
+		}
 	case "vicinity":
-		d12 = int(math.Round(formulas.Vicinity(latitudes[0], longitudes[0], latitudes[1], longitudes[1], earthRadius)))
-		d23 = int(math.Round(formulas.Vicinity(latitudes[1], longitudes[1], latitudes[2], longitudes[2], earthRadius)))
-		d34 = int(math.Round(formulas.Vicinity(latitudes[2], longitudes[2], latitudes[3], longitudes[3], earthRadius)))
-		d41 = int(math.Round(formulas.Vicinity(latitudes[3], longitudes[3], latitudes[0], longitudes[0], earthRadius)))
+		for i := 0; i < numPoints; i++ {
+			nextIndex := (i + 1) % numPoints
+			distances[i] = int(math.Round(formulas.Vicinity(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
+		}
+	default:
+		fmt.Println("Invalid formula.")
+		return
 	}
 
 	fmt.Printf("Circular distances using %s formula:\n", formula)
-	fmt.Printf("Distance 1 -> 2: %d units\n", d12)
-	fmt.Printf("Distance 2 -> 3: %d units\n", d23)
-	fmt.Printf("Distance 3 -> 4: %d units\n", d34)
-	fmt.Printf("Distance 4 -> 1: %d units\n", d41)
+	for i := 0; i < numPoints; i++ {
+		fmt.Printf("Distance %d -> %d: %d units\n", i+1, (i+1)%numPoints+1, distances[i])
+	}
 }
 
 func main() {
-	var latitudes [4]float64
-	var longitudes [4]float64
-	var earthRadius int
-	var formula string
+	var numPoints int
 
-	fmt.Println("Enter the latitudes and longitudes of the four points:")
-	for i := 0; i < 4; i++ {
+	fmt.Print("Enter the number of points: ")
+	fmt.Scan(&numPoints)
+
+	latitudes := make([]float64, numPoints)
+	longitudes := make([]float64, numPoints)
+
+	fmt.Printf("Enter the latitudes and longitudes of the %d points:\n", numPoints)
+	for i := 0; i < numPoints; i++ {
 		fmt.Printf("Point %d:\n", i+1)
 		fmt.Print("Latitude: ")
 		fmt.Scan(&latitudes[i])
@@ -47,15 +59,17 @@ func main() {
 		fmt.Scan(&longitudes[i])
 	}
 
+	var earthRadius int
 	fmt.Print("Enter the Earth's radius: ")
 	fmt.Scan(&earthRadius)
 
 	validFormulas := []string{"haversine", "vicinity"}
+	var formula string
 	fmt.Print("Enter the formula to use (haversine or vicinity): ")
 	fmt.Scan(&formula)
 
 	if !slices.Contains(validFormulas, formula) {
-		fmt.Print("Invalid formula.")
+		fmt.Println("Invalid formula.")
 		return
 	}
 

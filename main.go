@@ -25,7 +25,7 @@ func calculateCircularDistance(latitudes []float64, longitudes []float64, earthR
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.Haversine(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
 		}
-	case "vicinity":
+	case "vincenty":
 		for i := 0; i < numPoints; i++ {
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.Vincenty(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))

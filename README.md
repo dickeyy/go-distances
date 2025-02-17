@@ -91,7 +91,3 @@ Note the comments, the coordinates must be in degrees and represented as strings
 ## License
 
 MIT License, see [LISENCE file](./LICENSE).
-
-```
-
-```

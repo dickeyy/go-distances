@@ -17,7 +17,7 @@ var earthRadius int
 var latitudes []float64
 var longitudes []float64
 
-var validFormulas = []string{"haversine", "vincenty"}
+var validFormulas = []string{"haversine", "vincenty", "sloc"}
 
 // calculateCircularDistances computes the distances between points in a circular manner
 // using the specified formula. It accepts a variable number of latitudes and longitudes.

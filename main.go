@@ -56,6 +56,9 @@ func importDataFromUser() {
 	fmt.Print("Enter the number of points: ")
 	fmt.Scan(&numPoints)
 
+	latitudes = make([]float64, numPoints)
+	longitudes = make([]float64, numPoints)
+
 	fmt.Printf("Enter the latitudes and longitudes of the %d points:\n", numPoints)
 	for i := 0; i < numPoints; i++ {
 		fmt.Printf("Point %d:\n", i+1)

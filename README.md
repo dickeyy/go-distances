@@ -83,6 +83,10 @@ If you wish to import data from a file, the file MUST be in JSON format, and fol
 
 Note the comments, the coordinates must be in degrees and represented as strings. The `earthRadius` is the radius of the Earth in whatever unit you want, and the `formula` is optional and defaults to `vincenty`.
 
+### test-all-data.sh
+
+This script will run the program on all the test data files in the `test-data` directory, if you have a bunch of test data files you want to run quickly. Note: for this to work, you need to build the Go program first. To build the program, run `go build -o go-distances main.go`.
+
 ## Formulas
 
 -   `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.

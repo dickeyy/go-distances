@@ -53,6 +53,8 @@ func ParseFile(filePath string) (numPoints int, latitudes []float64, longitudes 
 	// if formula does not exist, default to Vincenty
 	if formula == "" {
 		formula = "vincenty"
+	} else if formula == "spherical law of cosines" {
+		formula = "sloc"
 	}
 
 	return

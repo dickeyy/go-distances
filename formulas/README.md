@@ -14,7 +14,7 @@ The Vincenty formula is based on the [Great-circle distance](https://en.wikipedi
 
 $$\\Delta \sigma = arctan \frac{\sqrt{\left (cos\phi_2 \cdot sin\left (\Delta\lambda\right ) \right)^2 + \left (cos\phi_1 \cdot sin\phi_2 - sin\phi_1 \cdot cos\phi_2 \cdot cos\left (\Delta\lambda\right ) \right)^2}}{sin\phi_1 \cdot sin\phi_2 + cos\phi_1 \cdot cos\phi_2 \cdot cos \left (\Delta\lambda\right )}\$$
 
-## Spherical Law of Cosines
+## [Spherical Law of Cosines](./sloc.go)
 
 The Spherical Law of Cosines formula is based on the [Great-circle distance](https://en.wikipedia.org/wiki/Great-circle_distance) and is used to calculate the distance between two points on a sphere. The formula is:
 

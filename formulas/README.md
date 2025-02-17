@@ -2,13 +2,13 @@
 
 This directory contains the formulas used to calculate the distances between points on a sphere.
 
-## Haversine
+## [Haversine](./haversine.go)
 
 The haaversine formula is based on the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) and is used to calculate the distance between two points on a sphere. The formula is:
 
 $$\\Delta \sigma = 2\cdot arcsin\sqrt{sin^2\left (\frac{\Delta\phi}{2}\right )+\left (cos^2\left(\frac{\phi_1 + \phi_2}{2}\right ) - sin^2\left (\frac{\Delta\phi}{2}\right ) \right) \cdot sin^2\left (\frac{\Delta\lambda}{2}\right )}\$$
 
-## Vincenty
+## [Vincenty](./vincenty.go)
 
 The Vincenty formula is based on the [Great-circle distance](https://en.wikipedia.org/wiki/Great-circle_distance) and is used to calculate the distance between two points on a sphere. Technically, it is not the Vincenty formula, but it is what's used for my CS314 class. The formula is:
 

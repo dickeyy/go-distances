@@ -6,9 +6,12 @@ import (
 	"github.com/dickeyy/go-distances/utils"
 )
 
-// haversineDistance calculates the great-circle distance between two points
+// Haversine calculates the great-circle distance between two points
 // (lat1, lon1) and (lat2, lon2) using the haversine formula.
 // The earthRadius should be provided in the desired unit (e.g., kilometers).
+
+// based on the spec from https://en.wikipedia.org/wiki/Haversine_formula
+// And https://en.wikipedia.org/wiki/Great-circle_distance
 func Haversine(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
 	// Convert degrees to radians.
 	lat1Rad := utils.DegreeToRad(lat1)

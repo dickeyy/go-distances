@@ -41,6 +41,11 @@ func calculateCircularDistance(latitudes []float64, longitudes []float64, earthR
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.Vincenty(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
 		}
+	case "sloc":
+		for i := 0; i < numPoints; i++ {
+			nextIndex := (i + 1) % numPoints
+			distances[i] = int(math.Round(formulas.SphericalLawOfCosines(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
+		}
 	default:
 		fmt.Println("Invalid formula.")
 		return
@@ -71,7 +76,7 @@ func importDataFromUser() {
 	fmt.Print("Enter the Earth's radius: ")
 	fmt.Scan(&earthRadius)
 
-	fmt.Print("Enter the formula to use (haversine or vincenty): ")
+	fmt.Print("Enter the formula to use (haversine or vincenty or sloc): ")
 	fmt.Scan(&formula)
 
 	if !slices.Contains(validFormulas, formula) {

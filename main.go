@@ -13,7 +13,7 @@ import (
 var numPoints int
 var importFile string
 var formula string
-var earthRadius int
+var earthRadius float64
 var latitudes []float64
 var longitudes []float64
 
@@ -21,7 +21,7 @@ var validFormulas = []string{"haversine", "vincenty", "sloc"}
 
 // calculateCircularDistances computes the distances between points in a circular manner
 // using the specified formula. It accepts a variable number of latitudes and longitudes.
-func calculateCircularDistance(latitudes []float64, longitudes []float64, earthRadius int, formula string) {
+func calculateCircularDistance(latitudes []float64, longitudes []float64, earthRadius float64, formula string) {
 	numPoints := len(latitudes)
 	if numPoints < 2 {
 		fmt.Println("At least two points are required to calculate circular distances.")

@@ -13,7 +13,7 @@ import (
 // And https://en.wikipedia.org/wiki/Great-circle_distance
 
 // Note: this is technically not *the* Vincenty formula, but it is what's used for my CS314 class.
-func Vincenty(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
+func Vincenty(lat1, lon1, lat2, lon2 float64, earthRadius float64) float64 {
 	// Convert degrees to radians
 	lat1Rad := utils.DegreeToRad(lat1)
 	lon1Rad := utils.DegreeToRad(lon1)

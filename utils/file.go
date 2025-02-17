@@ -14,11 +14,11 @@ type Point struct {
 
 type Data struct {
 	Places      []Point `json:"places"`
-	EarthRadius int     `json:"earthRadius"`
+	EarthRadius float64 `json:"earthRadius"`
 	Formula     string  `json:"formula"`
 }
 
-func ParseFile(filePath string) (numPoints int, latitudes []float64, longitudes []float64, earthRadius int, formula string, err error) {
+func ParseFile(filePath string) (numPoints int, latitudes []float64, longitudes []float64, earthRadius float64, formula string, err error) {
 	// read the file
 	file, err := os.Open(filePath)
 	if err != nil {

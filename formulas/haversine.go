@@ -12,7 +12,7 @@ import (
 
 // based on the spec from https://en.wikipedia.org/wiki/Haversine_formula
 // And https://en.wikipedia.org/wiki/Great-circle_distance
-func Haversine(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
+func Haversine(lat1, lon1, lat2, lon2 float64, earthRadius float64) float64 {
 	// Convert degrees to radians.
 	lat1Rad := utils.DegreeToRad(lat1)
 	lon1Rad := utils.DegreeToRad(lon1)

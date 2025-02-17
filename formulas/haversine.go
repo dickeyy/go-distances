@@ -16,14 +16,17 @@ func Haversine(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
 	lat2Rad := utils.DegreeToRad(lat2)
 	lon2Rad := utils.DegreeToRad(lon2)
 
-	// Compute differences.
-	dLat := lat2Rad - lat1Rad
-	dLon := lon2Rad - lon1Rad
+	// Differences in coordinates
+	deltaLat := lat2Rad - lat1Rad
+	deltaLon := lon2Rad - lon1Rad
 
-	// Haversine formula.
-	a := math.Sin(dLat/2)*math.Sin(dLat/2) +
-		math.Cos(lat1Rad)*math.Cos(lat2Rad)*math.Sin(dLon/2)*math.Sin(dLon/2)
-	c := 2 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
+	// Haversine formula
+	a := math.Sin(deltaLat/2)*math.Sin(deltaLat/2) +
+		math.Cos(lat1Rad)*math.Cos(lat2Rad)*math.Sin(deltaLon/2)*math.Sin(deltaLon/2)
+	c := 2 * math.Asin(math.Sqrt(a))
 
-	return float64(earthRadius) * c
+	// Distance
+	distance := float64(earthRadius) * c
+
+	return distance
 }

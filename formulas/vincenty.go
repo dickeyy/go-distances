@@ -1,16 +1,19 @@
 package formulas
 
-import "math"
+import (
+	"math"
+
+	"github.com/dickeyy/go-distances/utils"
+)
 
 // Vincenty calculates the great-circle distance between two points on a sphere
 // using the given formula. Coordinates are in degrees, and earthRadius is in the desired unit.
 func Vincenty(lat1, lon1, lat2, lon2 float64, earthRadius int) float64 {
 	// Convert degrees to radians
-	rad := math.Pi / 180.0
-	lat1Rad := lat1 * rad
-	lon1Rad := lon1 * rad
-	lat2Rad := lat2 * rad
-	lon2Rad := lon2 * rad
+	lat1Rad := utils.DegreeToRad(lat1)
+	lon1Rad := utils.DegreeToRad(lon1)
+	lat2Rad := utils.DegreeToRad(lat2)
+	lon2Rad := utils.DegreeToRad(lon2)
 
 	// Difference in longitude
 	deltaLon := lon2Rad - lon1Rad

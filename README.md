@@ -89,8 +89,11 @@ This script will run the program on all the test data files in the `test-data` d
 
 ## Formulas
 
+More indepth information about the formulas can be found [Here](./formulas/README.md).
+
 -   `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.
 -   `vincenty`: Uses the Vincenty formula to calculate the distance between two points on a sphere.
+-   `sloc`: Uses the Spherical Law of Cosines formula to calculate the distance between two points on a sphere.
 
 ## License
 

@@ -1,3 +1,14 @@
+// Package main provides a program for calculating great-circle distances between
+// geographical points using various formulas.
+//
+// The program supports three distance calculation methods:
+//   - Haversine formula
+//   - Vincenty formula (simplified version)
+//   - Spherical Law of Cosines (SLOC)
+//
+// Users can input data manually or from a JSON file, specify the Earth's radius,
+// and choose the calculation formula.
+
 package main
 
 import (
@@ -19,8 +30,14 @@ var longitudes []float64
 
 var validFormulas = []string{"haversine", "vincenty", "sloc"}
 
-// calculateCircularDistances computes the distances between points in a circular manner
-// using the specified formula. It accepts a variable number of latitudes and longitudes.
+// calculateCircularDistance computes the distances between points in a circular manner
+// using the specified formula. It accepts slices of latitudes and longitudes,
+// the Earth's radius, and the formula name.
+//
+// Supported formulas are "haversine", "vincenty", and "sloc".
+//
+// The function prints the calculated distances between consecutive points,
+// wrapping around to the first point after the last one.
 func calculateCircularDistance(latitudes []float64, longitudes []float64, earthRadius float64, formula string) {
 	numPoints := len(latitudes)
 	if numPoints < 2 {
@@ -57,6 +74,9 @@ func calculateCircularDistance(latitudes []float64, longitudes []float64, earthR
 	}
 }
 
+// importDataFromUser prompts the user to enter the number of points,
+// their latitudes and longitudes, the Earth's radius, and the formula to use.
+// It populates the global variables with the input data.
 func importDataFromUser() {
 	fmt.Print("Enter the number of points: ")
 	fmt.Scan(&numPoints)
@@ -85,6 +105,11 @@ func importDataFromUser() {
 	}
 }
 
+// importDataFromFile prompts the user for a JSON file path and reads the data
+// from the file. It populates the global variables with the imported data.
+//
+// The JSON file should contain an array of points with latitudes and longitudes,
+// the Earth's radius, and the formula to use.
 func importDataFromFile() {
 	fmt.Print("Enter the path to the file: ")
 	var filePath string
@@ -112,6 +137,9 @@ func importDataFromFile() {
 	fmt.Printf("Data imported from %s:\n", filePath)
 }
 
+// main is the entry point of the program. It asks the user whether to import
+// data from a file or enter it manually, then calculates and displays the
+// circular distances between the points using the specified formula.
 func main() {
 	fmt.Print("Do you want to import points from a file? (y/n): ")
 	fmt.Scan(&importFile)

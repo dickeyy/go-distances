@@ -1,3 +1,6 @@
+// Package formulas provides implementations of various distance calculation
+// formulas for geographical points on a sphere.
+
 package formulas
 
 import (
@@ -7,11 +10,13 @@ import (
 )
 
 // SphericalLawOfCosines calculates the great-circle distance between two points
-// (lat1, lon1) and (lat2, lon2) using the spherical law of cosines.
-// The earthRadius should be provided in the desired unit (e.g., kilometers).
-
-// based on the spec from https://en.wikipedia.org/wiki/Spherical_law_of_cosines
-// And https://en.wikipedia.org/wiki/Great-circle_distance
+// using the spherical law of cosines.
+//
+// Formula is based on:
+// https://en.wikipedia.org/wiki/Great-circle_distance
+// https://en.wikipedia.org/wiki/Spherical_law_of_cosines
+//
+// Coordinates are in degrees, and earthRadius is in the desired unit.
 func SphericalLawOfCosines(lat1, lon1, lat2, lon2 float64, earthRadius float64) float64 {
 	// Convert degrees to radians.
 	lat1Rad := utils.DegreeToRad(lat1)

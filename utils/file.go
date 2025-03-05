@@ -45,7 +45,7 @@ func ParseFile(filePath string) (numPoints int, latitudes []float64, longitudes 
 	numPoints = len(data.Places)
 	latitudes = make([]float64, numPoints)
 	longitudes = make([]float64, numPoints)
-	for i := 0; i < numPoints; i++ {
+	for i := range numPoints {
 		latitudes[i], err = strconv.ParseFloat(data.Places[i].Latitude, 64)
 		if err != nil {
 			return

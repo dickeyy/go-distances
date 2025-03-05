@@ -1,6 +1,5 @@
 // Package utils provides utility functions for the go-distances project,
 // including file parsing and degree-to-radian conversion
-
 package utils
 
 import "math"

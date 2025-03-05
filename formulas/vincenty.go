@@ -1,6 +1,5 @@
 // Package formulas provides implementations of various distance calculation
 // formulas for geographical points on a sphere.
-
 package formulas
 
 import (

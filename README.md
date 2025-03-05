@@ -1,5 +1,7 @@
 # go-distances
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/dickeyy/go-distances.svg)](https://pkg.go.dev/github.com/dickeyy/go-distances)
+
 A simple Go program to calculate circular distances between geographical points using different formulas.
 
 ## Description
@@ -8,13 +10,13 @@ A simple Go program to calculate circular distances between geographical points 
 
 ## Features
 
--   Calculates circular distances for any number of points.
--   Supports Haversine and Vicinity distance formulas.
--   User-friendly command-line interface.
+- Calculates circular distances for any number of points.
+- Supports Haversine and Vicinity distance formulas.
+- User-friendly command-line interface.
 
 ## Prerequisites
 
--   Go (version 1.16 or higher)
+- Go (version 1.16 or higher)
 
 ## Installation
 
@@ -42,16 +44,16 @@ go install github.com/dickeyy/go-distances@latest
 
 2.  **Follow the prompts:**
 
-    -   Do you want to import points from a file? (y/n): y
-    -   Enter the path to the file.
+    - Do you want to import points from a file? (y/n): y
+    - Enter the path to the file.
 
     OR
 
-    -   Do you want to import points from a file? (y/n): n
-    -   Enter the number of points.
-    -   Enter the latitude and longitude for each point.
-    -   Enter the Earth's radius (in your desired unit, e.g., 6371 for kilometers).
-    -   Enter the formula to use (`haversine` or `vincenty`).
+    - Do you want to import points from a file? (y/n): n
+    - Enter the number of points.
+    - Enter the latitude and longitude for each point.
+    - Enter the Earth's radius (in your desired unit, e.g., 6371 for kilometers).
+    - Enter the formula to use (`haversine` or `vincenty`).
 
 3.  **View the results:**
 
@@ -91,9 +93,9 @@ This script will run the program on all the test data files in the `test-data` d
 
 More indepth information about the formulas can be found [Here](./formulas/README.md).
 
--   `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.
--   `vincenty`: Uses the Vincenty formula to calculate the distance between two points on a sphere.
--   `sloc`: Uses the Spherical Law of Cosines formula to calculate the distance between two points on a sphere.
+- `haversine`: Uses the Haversine formula to calculate the distance between two points on a sphere.
+- `vincenty`: Uses the Vincenty formula to calculate the distance between two points on a sphere.
+- `sloc`: Uses the Spherical Law of Cosines formula to calculate the distance between two points on a sphere.
 
 ## License
 

@@ -1,6 +1,7 @@
 # go-distances
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/dickeyy/go-distances.svg)](https://pkg.go.dev/github.com/dickeyy/go-distances)
+[![codecov](https://codecov.io/gh/dickeyy/go-distances/graph/badge.svg?token=6N8HYISOL0)](https://codecov.io/gh/dickeyy/go-distances)
 
 A simple Go program to calculate circular distances between geographical points using different formulas.
 

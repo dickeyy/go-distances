@@ -8,7 +8,6 @@
 //
 // Users can input data manually or from a JSON file, specify the Earth's radius,
 // and choose the calculation formula.
-
 package main
 
 import (

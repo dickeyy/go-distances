@@ -49,17 +49,17 @@ func calculateCircularDistance(latitudes []float64, longitudes []float64, earthR
 
 	switch formula {
 	case "haversine":
-		for i := 0; i < numPoints; i++ {
+		for i := range numPoints {
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.Haversine(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
 		}
 	case "vincenty":
-		for i := 0; i < numPoints; i++ {
+		for i := range numPoints {
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.Vincenty(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
 		}
 	case "sloc":
-		for i := 0; i < numPoints; i++ {
+		for i := range numPoints {
 			nextIndex := (i + 1) % numPoints
 			distances[i] = int(math.Round(formulas.SphericalLawOfCosines(latitudes[i], longitudes[i], latitudes[nextIndex], longitudes[nextIndex], earthRadius)))
 		}
@@ -69,7 +69,7 @@ func calculateCircularDistance(latitudes []float64, longitudes []float64, earthR
 	}
 
 	fmt.Printf("\nCircular distances using %s formula:\n", formula)
-	for i := 0; i < numPoints; i++ {
+	for i := range numPoints {
 		fmt.Printf("Distance %d -> %d: %d units\n", i+1, (i+1)%numPoints+1, distances[i])
 	}
 }
@@ -85,7 +85,7 @@ func importDataFromUser() {
 	longitudes = make([]float64, numPoints)
 
 	fmt.Printf("Enter the latitudes and longitudes of the %d points:\n", numPoints)
-	for i := 0; i < numPoints; i++ {
+	for i := range numPoints {
 		fmt.Printf("Point %d:\n", i+1)
 		fmt.Print("Latitude: ")
 		fmt.Scan(&latitudes[i])

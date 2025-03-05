@@ -1,3 +1,6 @@
+// Package utils provides utility functions for the go-distances project,
+// including file parsing and degree-to-radian conversion.
+
 package utils
 
 import (
@@ -18,6 +21,11 @@ type Data struct {
 	Formula     string  `json:"formula"`
 }
 
+// ParseFile reads a JSON file containing geographical point data and returns
+// the parsed information.
+//
+// It returns the number of points, slices of latitudes and longitudes,
+// the Earth's radius, and the formula to use for distance calculation.
 func ParseFile(filePath string) (numPoints int, latitudes []float64, longitudes []float64, earthRadius float64, formula string, err error) {
 	// read the file
 	file, err := os.Open(filePath)
